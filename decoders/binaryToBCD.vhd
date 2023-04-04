@@ -1,0 +1,335 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+	entity binaryToBCD is
+	port
+	(
+	input:           in std_logic_vector(7 downto 0);   --ulaz dekodera (dva heksadecimalna broja), tj. osmobitni podatak
+   output_0:     out std_logic_vector(3 downto 0);  --izlaz dekodera manje tezine 
+	output_1:     out std_logic_vector(3 downto 0)   --izlaz dekodera vece tezine 
+	);
+end binaryToBCD;
+
+
+architecture HEXBCD_arch of binaryToBCD is
+begin
+
+PROCESS (input)
+BEGIN
+CASE input IS
+		WHEN "00000000" =>
+			output_0 <= "0000"; --0
+			output_1 <= "0000"; 
+		WHEN "00000001" =>
+			output_0 <= "0001"; --1
+			output_1 <= "0000"; 
+		WHEN "00000010" =>
+			output_0 <= "0010"; --2
+			output_1 <= "0000";
+		WHEN "00000011" =>
+			output_0 <= "0011"; --3
+			output_1 <= "0000";
+		WHEN "00000100" =>
+			output_0 <= "0100"; --4
+			output_1 <= "0000";
+		WHEN "00000101" =>
+			output_0 <= "0101"; --5
+			output_1 <= "0000";
+		WHEN "00000110" =>
+			output_0 <= "0110"; --6
+			output_1 <= "0000";
+	        WHEN "00000111" =>
+			output_0 <= "0111"; --7
+			output_1 <= "0000";
+		WHEN "00001000" =>
+			output_0 <= "1000"; --8
+			output_1 <= "0000";
+		WHEN "00001001" =>
+			output_0 <= "1001"; --9
+			output_1 <= "0000";
+	        WHEN "00001010" =>
+			output_0 <= "0000"; --10
+			output_1 <= "0001";
+		WHEN "00001011" =>
+			output_0 <= "0001"; --11
+			output_1 <= "0001";
+		WHEN "00001100" =>
+			output_0 <= "0010"; --12
+			output_1 <= "0001";
+		WHEN "00001101" =>
+			output_0 <= "0011"; --13
+			output_1 <= "0001";
+		WHEN "00001110" =>
+			output_0 <= "0100"; --14
+			output_1 <= "0001";
+		WHEN "00001111" =>   
+			output_0 <= "0101"; --15   
+			output_1 <= "0001"; 
+		
+		WHEN "00010000" =>
+			output_0 <= "0110";
+			output_1 <= "0001";
+		WHEN "00010001" =>
+			output_0 <= "0111";
+			output_1 <= "0001";
+		WHEN "00010010" =>
+			output_0 <= "1000";
+			output_1 <= "0001";
+		WHEN "00010011" =>
+			output_0 <= "1001";
+			output_1 <= "0001";
+		WHEN "00010100" =>
+			output_0 <= "0000";
+			output_1 <= "0010";
+		WHEN "00010101" =>
+			output_0 <= "0001";
+			output_1 <= "0010";
+		WHEN "00010110" =>
+			output_0 <= "0010";
+			output_1 <= "0010";
+	        WHEN "00010111" =>
+			output_0 <= "0011";
+			output_1 <= "0010";
+		WHEN "00011000" =>
+			output_0 <= "0100";
+			output_1 <= "0010";
+		WHEN "00011001" =>
+			output_0 <= "0101";
+			output_1 <= "0010";
+	        WHEN "00011010" =>
+			output_0 <= "0110";
+			output_1 <= "0010";
+		WHEN "00011011" =>
+			output_0 <= "0111";
+			output_1 <= "0010";
+		WHEN "00011100" =>
+			output_0 <= "1000";
+			output_1 <= "0010";
+		WHEN "00011101" =>
+			output_0 <= "1001";
+			output_1 <= "0010";
+		WHEN "00011110" =>
+			output_0 <= "0000";
+			output_1 <= "0011";
+		WHEN "00011111" =>                  
+			output_0 <= "0001";
+			output_1 <= "0011";
+			
+		WHEN "00100000" =>
+			output_0 <= "0010";
+			output_1 <= "0011";
+		WHEN "00100001" =>
+			output_0 <= "0011";
+			output_1 <= "0011";
+		WHEN "00100010" =>
+			output_0 <= "0100";
+			output_1 <= "0011";
+		WHEN "00100011" =>
+			output_0 <= "0101";
+			output_1 <= "0011";
+		WHEN "00100100" =>
+			output_0 <= "0110";
+			output_1 <= "0011";
+		WHEN "00100101" =>
+			output_0 <= "0111";
+			output_1 <= "0011";
+		WHEN "00100110" =>
+			output_0 <= "1000";
+			output_1 <= "0011";
+	        WHEN "00100111" =>
+			output_0 <= "1001";
+			output_1 <= "0011";
+		WHEN "00101000" =>
+			output_0 <= "0000";
+			output_1 <= "0100";
+		WHEN "00101001" =>
+			output_0 <= "0001";
+			output_1 <= "0100";
+	        WHEN "00101010" =>
+			output_0 <= "0010";
+			output_1 <= "0100";
+		WHEN "00101011" =>
+			output_0 <= "0011";
+			output_1 <= "0100";
+		WHEN "00101100" =>
+			output_0 <= "0100";
+			output_1 <= "0100";
+		WHEN "00101101" =>
+			output_0 <= "0101";
+			output_1 <= "0100";
+		WHEN "00101110" =>
+			output_0 <= "0110";
+			output_1 <= "0100";
+		WHEN "00101111" =>              
+			output_0 <= "0111";
+			output_1 <= "0100";
+				
+		WHEN "00110000" =>
+			output_0 <= "1000";
+			output_1 <= "0100";
+		WHEN "00110001" =>
+			output_0 <= "1001"; 
+			output_1 <= "0100";
+		WHEN "00110010" =>
+			output_0 <= "0000";
+			output_1 <= "0101";
+		WHEN "00110011" =>
+			output_0 <= "0001";
+			output_1 <= "0101";
+		WHEN "00110100" =>
+			output_0 <= "0010";
+			output_1 <= "0101";
+		WHEN "00110101" =>
+			output_0 <= "0011";
+			output_1 <= "0101";
+		WHEN "00110110" =>
+			output_0 <= "0100";
+			output_1 <= "0101";
+	        WHEN "00110111" =>
+			output_0 <= "0101";
+			output_1 <= "0101";
+		WHEN "00111000" =>
+			output_0 <= "0110";
+			output_1 <= "0101";
+		WHEN "00111001" =>
+			output_0 <= "0111";
+			output_1 <= "0101";
+	        WHEN "00111010" =>
+			output_0 <= "1000";
+			output_1 <= "0101";
+		WHEN "00111011" =>
+			output_0 <= "1001";
+			output_1 <= "0101";
+		WHEN "00111100" =>
+			output_0 <= "0000";
+			output_1 <= "0110";
+		WHEN "00111101" =>
+			output_0 <= "0001";
+			output_1 <= "0110";
+		WHEN "00111110" =>
+			output_0 <= "0010";
+			output_1 <= "0110";
+		WHEN "00111111" =>             
+			output_0 <= "0011";
+			output_1 <= "0110";
+	
+		WHEN "01000000" =>
+			output_0 <= "0100";
+			output_1 <= "0110";
+		WHEN "01000001" =>
+			output_0 <= "0101";
+			output_1 <= "0110";
+		WHEN "01000010" =>
+			output_0 <= "0110";
+			output_1 <= "0110";
+		WHEN "01000011" =>
+			output_0 <= "0111";
+			output_1 <= "0110";
+		WHEN "01000100" =>
+			output_0 <= "1000";
+			output_1 <= "0110";
+		WHEN "01000101" =>
+			output_0 <= "1001";
+			output_1 <= "0110";
+		WHEN "01000110" =>
+			output_0 <= "0000";
+			output_1 <= "0111";
+		WHEN "01000111" =>
+			output_0 <= "0001";
+			output_1 <= "0111";
+		WHEN "01001000" =>
+			output_0 <= "0010";
+			output_1 <= "0111";
+		WHEN "01001001" =>
+			output_0 <= "0011";
+			output_1 <= "0111";
+	        WHEN "01001010" =>
+			output_0 <= "0100";
+			output_1 <= "0111";
+		WHEN "01001011" =>
+			output_0 <= "0101";
+			output_1 <= "0111";
+		WHEN "01001100" =>
+			output_0 <= "0110";
+			output_1 <= "0111";
+		WHEN "01001101" =>
+			output_0 <= "0111";
+			output_1 <= "0111";
+		WHEN "01001110" =>
+			output_0 <= "1000";
+			output_1 <= "0111";
+		WHEN "01001111" =>             
+			output_0 <= "1001";
+			output_1 <= "0111";
+	
+		WHEN "01010000" =>
+			output_0 <= "0000";
+			output_1 <= "1000";
+		WHEN "01010001" =>
+			output_0 <= "0001";
+			output_1 <= "1000";
+		WHEN "01010010" =>
+			output_0 <= "0010";
+			output_1 <= "1000";
+		WHEN "01010011" =>
+			output_0 <= "0011";
+			output_1 <= "1000";
+		WHEN "01010100" =>
+			output_0 <= "0100";
+			output_1 <= "1000";
+		WHEN "01010101" =>
+			output_0 <= "0101";
+			output_1 <= "1000";
+		WHEN "01010110" =>
+			output_0 <= "0110";
+			output_1 <= "1000";
+	        WHEN "01010111" =>
+			output_0 <= "0111";
+			output_1 <= "1000";
+		WHEN "01011000" =>
+			output_0 <= "1000";
+			output_1 <= "1000";
+		WHEN "01011001" =>
+			output_0 <= "1001";
+			output_1 <= "1000";
+	        WHEN "01011010" =>
+			output_0 <= "0000";
+			output_1 <= "1001";
+		WHEN "01011011" =>
+			output_0 <= "0001";
+			output_1 <= "1001";
+		WHEN "01011100" =>
+			output_0 <= "0010";
+			output_1 <= "1001";
+		WHEN "01011101" =>
+			output_0 <= "0011";
+			output_1 <= "1001";
+		WHEN "01011110" =>
+			output_0 <= "0100";
+			output_1 <= "1001";
+		WHEN "01011111" =>             
+			output_0 <= "0101";
+			output_1 <= "1001";
+	
+		
+		WHEN "01100000" =>
+			output_0 <= "0110";
+			output_1 <= "1001";
+		WHEN "01100001" =>
+			output_0 <= "0111";
+			output_1 <= "1001";
+		WHEN "01100010" =>
+			output_0 <= "1000";
+			output_1 <= "1001";
+		WHEN "01100011" =>
+			output_0 <= "1001";
+			output_1 <= "1001";
+		WHEN OTHERs =>
+			output_0 <= "0000";
+			output_1 <= "0000";
+		
+			
+	END CASE;
+END PROCESS;	
+end HEXBCD_arch;
+
